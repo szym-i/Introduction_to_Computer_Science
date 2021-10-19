@@ -16,4 +16,4 @@
   Pierwsza kolumna | Druga kolumna
   -----------------|---------------
   jeden | dwa
-![kot](/laboratorium&#32;2/kot.jpeg)
+![kot](laboratorium&#32;2/kot.jpg)
