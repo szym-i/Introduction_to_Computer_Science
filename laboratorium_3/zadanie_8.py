@@ -1,2 +1,7 @@
-if __name__ == "__main__":
-    for i in range (10)
+a = int(input("Podaj wysokość>>"))
+for i in range(a):
+    if i == 0:
+        print(" " * (a-1) + "X")
+    else:
+        print(" " * (a-i-1) + "*" * (i*2+1))
+print(" " * (a-1) + "U")
