@@ -1,4 +1,2 @@
-a=int(input(">>>"))
-for i in range (a,):
-    for j in range (a):
-        print("x")
+if __name__ == "__main__":
+    for i in range (10)
