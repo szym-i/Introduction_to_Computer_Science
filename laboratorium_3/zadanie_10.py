@@ -1,7 +1,21 @@
 print("KALKULATOR")
-r = 0
-a = int(input("Wprowadź liczbę"))
-s+=a
+wynik = 0
+a = float(input("Wprowadź liczbę "))
 while True:
-    operacja = str(input("Wybierz operację:+, -, *, /, **, ^, x."))
-    if 
+    operacja = (input("Wybierz operację:+, -, *, /, **, ^, x."))
+    if operacja == "+":
+        wynik += a
+        print(operacja,wynik)
+    elif operacja == "-":
+        wynik -= a
+        print(operacja,wynik)
+    elif operacja == "*":
+        print(operacja,wynik)
+    elif operacja == "/":
+        print(operacja,wynik)
+    elif operacja == "**":
+        print(operacja,wynik)
+    elif operacja == "^":
+        print(operacja,wynik)
+    elif operacja == "x":
+        print(operacja,wynik)
