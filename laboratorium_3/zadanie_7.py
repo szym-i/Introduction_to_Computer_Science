@@ -23,5 +23,6 @@ else:
         for i in reversed(range (b,a+1)):
             print(i)
     else:
-        for i in range (a,b+1):
-            print(i)
+        while a <= b:
+            print(a)
+            a += 1
