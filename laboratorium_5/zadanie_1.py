@@ -1,5 +1,4 @@
-#ciąg Fibonacciego - elementy mniejsze od miliona
-a = 0
+a = 0  #ciąg Fibonacciego - elementy mniejsze od miliona
 b = 1
 c = a + b
 print(a,"\n",b)
