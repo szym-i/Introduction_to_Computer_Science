@@ -1,4 +1,4 @@
-a = int(input("Sprawdź czy liczba jest pierwsza: "))  #sprawdź czy liczba jest pierwsza
+a = int(input("Sprawdź czy liczba jest pierwsza: "))  #sprawdź czy liczba jest pierwszaa
 b = 0
 for i in range (2,a-1):
     if a % i == 0:
