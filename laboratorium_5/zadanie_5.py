@@ -22,5 +22,3 @@ while True:
     if n <= 0: 
         print("Liczba nie jest naturalna")
         break
-
-
