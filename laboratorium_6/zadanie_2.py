@@ -6,7 +6,10 @@ print(x1,x2)
 '''zauważyłem że gdy j=0, wynik jest zwracany w mniej czytelnej postaci (X+0j), stąd funkcja sprawdzenie'''
 def sprawdzenie(result): 
     if result.imag == 0:
-        return result.real
+        if result.real % 1 == 0:
+            return int(result.real)
+        else:
+            return result.real
     else:
         return result
 def suma(c1,c2):
