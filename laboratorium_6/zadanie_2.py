@@ -27,4 +27,15 @@ def dzielenie(c1,c2):
         return result
     else:
         return '''NIE DZIEL PRZEZ 0'''
-print(f'''Wynik dodawania:{sprawdzenie(suma(x1,x2))}\nWynik odejmowania:{sprawdzenie(roznica(x1,x2))}\nWynik mnożenia:{sprawdzenie(mnozenie(x1,x2))}\nWynik dzielenia:{sprawdzenie(dzielenie(x1,x2))}\nSprzężenia tych liczb są równe:{sprawdzenie(x1.conjugate())},{sprawdzenie(x2.conjugate())}''')
+def potegowanie(c1,c2):
+    if c1.imag == 0 and c2.imag == 0:
+        result = c1 ** c2 
+        return result
+    else:
+        return (f'''NIEOBSŁUGIWANA OPERACJA''')
+print(f'''Wynik dodawania:{sprawdzenie(suma(x1,x2))}
+Wynik odejmowania:{sprawdzenie(roznica(x1,x2))}
+Wynik mnożenia:{sprawdzenie(mnozenie(x1,x2))}
+Wynik dzielenia:{sprawdzenie(dzielenie(x1,x2))}
+Sprzężenia tych liczb są równe:{sprawdzenie(x1.conjugate())},{sprawdzenie(x2.conjugate())}
+Potęgi tych liczb są równe:{(potegowanie(x1,x2))}''')
