@@ -1,13 +1,9 @@
-#Proszę napisać program wczytujący dwie liczby urojone w postaci algebraicznej
-print(f'''UWAGA: liczba zespolona ma postać (A+Bj)''')
-x1 = complex(input("Wprowadź pierwszą liczbę zespoloną>>"))
-x2 = complex(input("Wprowadź drugą liczbę zespoloną>>"))
 #zauważyłem że gdy j=0, wynik jest zwracany w nieczytelnej postaci (X+0j), stąd funkcja sprawdzenie
-def sprawdzenie(x):  #przykłady: 1. dwie liczby rzeczywiste 2.dwie liczby urojone 3.jedna taka jedna taka 4.
-    if x.imag == 0:
-        if x.real % 1 == 0:
-            return int(x.real)
-        else:
+def sprawdzenie(x):                   #przykłady:
+    if x.imag == 0:                    #1.dwie liczby rzeczywiste 
+        if x.real % 1 == 0:            #2.dwie liczby urojone
+            return int(x.real)         #3.pierwsza urojona, druga rzeczywista 
+        else:                          #4.pierwsza rzeczywista druga urojona
             return x.real
     else:
         return x
@@ -38,6 +34,9 @@ def potegowanie(c1,c2):
         return result
     else:
         return (f'''NIEOBSŁUGIWANA OPERACJA''')
+print(f'''UWAGA: liczba zespolona ma postać (A+Bj)''')
+x1 = complex(input("Wprowadź pierwszą liczbę zespoloną>>"))
+x2 = complex(input("Wprowadź drugą liczbę zespoloną>>"))
 print(f'''1.Wynik dodawania:{sprawdzenie(suma(x1,x2))}
 2.Wynik odejmowania:{sprawdzenie(roznica(x1,x2))}
 3.Wynik mnożenia:{sprawdzenie(mnozenie(x1,x2))}
