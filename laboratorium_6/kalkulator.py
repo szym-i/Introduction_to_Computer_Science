@@ -1,8 +1,8 @@
 def sprawdzenie(x):                   #przykłady:
-    if x.imag == 0:                    #1.dwie liczby rzeczywiste 
-        if x.real % 1 == 0:            #2.dwie liczby urojone
-            return int(x.real)         #3.pierwsza urojona, druga rzeczywista 
-        else:                          #4.pierwsza rzeczywista druga urojona
+    if x.imag == 0:                    #1. 1+j * 1-j
+        if x.real % 1 == 0:            #2. **5
+            return int(x.real)         #3. +64j
+        else:                          #4. /8
             return x.real
     else:
         return x
