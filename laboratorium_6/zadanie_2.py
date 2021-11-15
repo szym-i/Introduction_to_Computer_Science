@@ -1,10 +1,9 @@
 #Proszę napisać program wczytujący dwie liczby urojone w postaci algebraicznej
 print(f'''UWAGA: liczba zespolona ma postać (A+Bj)''')
-x1 = complex(input("Wprowadź zespoloną>>"))
+x1 = complex(input("Wprowadź pierwszą liczbę zespoloną>>"))
 x2 = complex(input("Wprowadź drugą liczbę zespoloną>>"))
-print(x1,x2)
 #zauważyłem że gdy j=0, wynik jest zwracany w nieczytelnej postaci (X+0j), stąd funkcja sprawdzenie
-def sprawdzenie(x):  #przykłady: 1, dwie liczby rzeczywiste, 2.dwie liczby urojone, 3.jedna taka jedna taka, o
+def sprawdzenie(x):  #przykłady: 1. dwie liczby rzeczywiste 2.dwie liczby urojone 3.jedna taka jedna taka 4.
     if x.imag == 0:
         if x.real % 1 == 0:
             return int(x.real)
@@ -39,9 +38,9 @@ def potegowanie(c1,c2):
         return result
     else:
         return (f'''NIEOBSŁUGIWANA OPERACJA''')
-print(f'''Wynik dodawania:{sprawdzenie(suma(x1,x2))}
-Wynik odejmowania:{sprawdzenie(roznica(x1,x2))}
-Wynik mnożenia:{sprawdzenie(mnozenie(x1,x2))}
-Wynik dzielenia:{sprawdzenie(dzielenie(x1,x2))}
-Sprzężenia tych liczb są równe:{sprawdzenie(x1.conjugate())},{sprawdzenie(x2.conjugate())}
-Potęgi tych liczb są równe:{potegowanie(x1,x2)}''')
+print(f'''1.Wynik dodawania:{sprawdzenie(suma(x1,x2))}
+2.Wynik odejmowania:{sprawdzenie(roznica(x1,x2))}
+3.Wynik mnożenia:{sprawdzenie(mnozenie(x1,x2))}
+4.Wynik dzielenia:{sprawdzenie(dzielenie(x1,x2))}
+5.Potęgi tych liczb są równe:{potegowanie(x1,x2)}
+6.Sprzężenia tych liczb są równe:{sprawdzenie(x1.conjugate())},{sprawdzenie(x2.conjugate())}''')
