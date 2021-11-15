@@ -1,9 +1,9 @@
 #zauważyłem że gdy j=0, wynik jest zwracany w nieczytelnej postaci (X+0j), stąd funkcja sprawdzenie
-def sprawdzenie(x):                   #przykłady:
-    if x.imag == 0:                    #1.dwie liczby rzeczywiste 
-        if x.real % 1 == 0:            #2.dwie liczby urojone
-            return int(x.real)         #3.pierwsza urojona, druga rzeczywista 
-        else:                          #4.pierwsza rzeczywista druga urojona
+def sprawdzenie(x):        
+    if x.imag == 0:           
+        if x.real % 1 == 0:
+            return int(x.real)         
+        else:
             return x.real
     else:
         return x
