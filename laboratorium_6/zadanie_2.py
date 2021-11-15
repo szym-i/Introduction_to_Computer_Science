@@ -4,14 +4,14 @@ x1 = complex(input("Wprowadź zespoloną>>"))
 x2 = complex(input("Wprowadź drugą liczbę zespoloną>>"))
 print(x1,x2)
 #zauważyłem że gdy j=0, wynik jest zwracany w nieczytelnej postaci (X+0j), stąd funkcja sprawdzenie
-def sprawdzenie(result):
-    if result.imag == 0:
-        if result.real % 1 == 0:
-            return int(result.real)
+def sprawdzenie(x):  #przykłady: 1, dwie liczby rzeczywiste, 2.dwie liczby urojone, 3.jedna taka jedna taka, o
+    if x.imag == 0:
+        if x.real % 1 == 0:
+            return int(x.real)
         else:
-            return result.real
+            return x.real
     else:
-        return result
+        return x
 def suma(c1,c2):
     result = c1 +c2
     return result
@@ -29,7 +29,13 @@ def dzielenie(c1,c2):
         return '''NIE DZIEL PRZEZ 0'''
 def potegowanie(c1,c2):
     if c1.imag == 0 and c2.imag == 0:
-        result = c1 ** c2 
+        result = c1.real ** c2.real
+        return result
+    elif c1.imag == 0:
+        result = c2 ** c1.real
+        return result
+    elif c2.imag == 0:
+        result = c1 ** c2.real
         return result
     else:
         return (f'''NIEOBSŁUGIWANA OPERACJA''')
@@ -38,4 +44,4 @@ Wynik odejmowania:{sprawdzenie(roznica(x1,x2))}
 Wynik mnożenia:{sprawdzenie(mnozenie(x1,x2))}
 Wynik dzielenia:{sprawdzenie(dzielenie(x1,x2))}
 Sprzężenia tych liczb są równe:{sprawdzenie(x1.conjugate())},{sprawdzenie(x2.conjugate())}
-Potęgi tych liczb są równe:{sprawdzenie(potegowanie(x1,x2))}''')
+Potęgi tych liczb są równe:{potegowanie(x1,x2)}''')
