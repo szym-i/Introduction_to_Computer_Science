@@ -1,10 +1,10 @@
 #zauważyłem że gdy j=0, wynik jest zwracany w nieczytelnej postaci (X+0j), stąd funkcja sprawdzenie
 def sprawdzenie(x):                   #przykłady:
-    if x.imag == 0:                    #1. 1+j * 1-j
-        if x.real % 1 == 0:            #2. **5
-            return int(x.real)         #3. +64j
-        else:                          #4. /8
-            return x.real
+    if x.imag == 0:                    #1. 1+j * 1-j  -> 2
+        if x.real % 1 == 0:            #2. **5        -> 32
+            return int(x.real)         #3. +64j       -> 32+64j
+        else:                          #4. /8         -> 4+8j
+            return x.real   
     else:
         return x
 print(f'''KALKULATOR LICZB ZESPOLONYCH \nUWAGA: liczba zespolona ma postać (A+Bj)''')
