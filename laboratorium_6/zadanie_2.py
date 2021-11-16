@@ -1,45 +1,48 @@
 #zauważyłem że gdy j=0, wynik jest zwracany w nieczytelnej postaci (X+0j), stąd funkcja sprawdzenie
-def sprawdzenie(x):        
-    if x.imag == 0:           
-        if x.real % 1 == 0:
-            return int(x.real)         
-        else:
+def sprawdzenie(x):                   #przykłady:
+    if x.imag == 0:                    #1. 1+j * 1-j
+        if x.real % 1 == 0:            #2. **5
+            return int(x.real)         #3. +64j
+        else:                          #4. /8
             return x.real
     else:
         return x
-def suma(c1,c2):
-    result = c1 +c2
-    return result
-def roznica(c1,c2):
-    result = c1 - c2
-    return result
-def mnozenie(c1,c2):
-    result = c1 * c2
-    return result
-def dzielenie(c1,c2):
-    if c2 != 0:
-        result = c1/c2
-        return result
-    else:
-        return '''NIE DZIEL PRZEZ 0'''
-def potegowanie(c1,c2):
-    if c1.imag == 0 and c2.imag == 0:
-        result = c1.real ** c2.real
-        return result
-    elif c1.imag == 0:
-        result = c2 ** c1.real
-        return result
-    elif c2.imag == 0:
-        result = c1 ** c2.real
-        return result
-    else:
-        return (f'''NIEOBSŁUGIWANA OPERACJA''')
-print(f'''UWAGA: liczba zespolona ma postać (A+Bj)''')
-x1 = complex(input("Wprowadź pierwszą liczbę zespoloną>>"))
-x2 = complex(input("Wprowadź drugą liczbę zespoloną>>"))
-print(f'''1.Wynik dodawania:{sprawdzenie(suma(x1,x2))}
-2.Wynik odejmowania:{sprawdzenie(roznica(x1,x2))}
-3.Wynik mnożenia:{sprawdzenie(mnozenie(x1,x2))}
-4.Wynik dzielenia:{sprawdzenie(dzielenie(x1,x2))}
-5.Potęgi tych liczb są równe:{potegowanie(x1,x2)}
-6.Sprzężenia tych liczb są równe:{sprawdzenie(x1.conjugate())},{sprawdzenie(x2.conjugate())}''')
+print(f'''KALKULATOR LICZB ZESPOLONYCH \nUWAGA: liczba zespolona ma postać (A+Bj)''')
+wynik = complex(input(f'''Wprowadź liczbę zespoloną>>'''))
+while True:
+    operacja = (input(f'''Wybierz operację: + | - | * | / | ** \n >>'''))
+    try:
+        if operacja == '+':
+            b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
+            wynik += b
+            print(wynik)
+        elif operacja == '-':
+            b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
+            wynik -= b
+            print(wynik)
+        elif operacja == '*':
+            b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
+            wynik = wynik * b
+            print(wynik)
+        elif operacja == '/':
+            b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
+            if b == 0:
+                raise ZeroDivisionError #zgłaszamy błąd przy dzieleniu przez 0
+            else:
+                wynik = wynik / b
+                print(wynik)
+        elif operacja == '**':
+            b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
+            if b.imag == 0:
+                wynik = wynik ** b.real
+                print(wynik)
+            else:
+                raise ValueError #zgłaszamy błąd przy potęgowaniu
+        end = input(f'''Czy chcesz wprowadzić nowe dane?T/N''')
+        if end == 'N' or end == 'n':
+            print(f'''Ostateczny wynik: {sprawdzenie(wynik)}''')
+            break
+    except ValueError:
+        print(f'''Nieobsługiwana operacja''')
+    except ZeroDivisionError:
+        print(f'''NIE DZIEL PRZEZ 0''')
