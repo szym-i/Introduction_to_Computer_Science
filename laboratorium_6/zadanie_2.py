@@ -25,10 +25,10 @@ while True:
             wynik = wynik * c
             print(wynik)
         elif operacja == '/':
-            if c == 0:
+            if c==0:
                 raise ZeroDivisionError #zgłaszamy błąd przy dzieleniu przez 0
             else:
-                wynik = wynik / b
+                wynik = wynik / c
                 print(wynik)
         elif operacja == '**':
             if b == 0:
