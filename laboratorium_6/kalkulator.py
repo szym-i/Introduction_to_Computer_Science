@@ -9,27 +9,27 @@ def sprawdzenie(x):                   #przykłady:
 print(f'''KALKULATOR LICZB ZESPOLONYCH''')
 wynik = complex(input(f'''Wprowadź liczbę zespoloną>>'''))
 while True:
-    operacja = (input(f'''Wybierz operację: + | - | * | / | **\n >>'''))
-    if operacja == "+":
+    operacja = (input(f'''Wybierz operację: + | - | * | / | ** \n >>'''))
+    if operacja == '+':
         b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
         wynik += b
         print(wynik)
-    elif operacja == "-":
+    elif operacja == '-':
         b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
         wynik -= b
         print(wynik)
-    elif operacja == "*":
+    elif operacja == '*':
         b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
         wynik = wynik * b
         print(wynik)
-    elif operacja == "/":
+    elif operacja == '/':
         b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
         if b == 0:
             print(f'''NIE DZIEL PRZEZ 0''')
         else:
             wynik = wynik / b
             print(wynik)
-    elif operacja == "**":
+    elif operacja == '**':
         b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
         if b.imag == 0:
             wynik = wynik ** b
@@ -37,7 +37,7 @@ while True:
         else:
             print(f'''Nieobsługiwana operacja''')
             print(wynik)
-    end = input("Czy chcesz wprowadzić nowe dane?T/N")
-    if end == "N" or end == "n":
+    end = input(f'''Czy chcesz wprowadzić nowe dane?T/N''')
+    if end == 'N' or 'n':
         print(f'''Ostateczny wynik: {sprawdzenie(wynik)}''')
         break
