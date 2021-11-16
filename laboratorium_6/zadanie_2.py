@@ -11,38 +11,36 @@ print(f'''KALKULATOR LICZB ZESPOLONYCH \nUWAGA: liczba zespolona ma postać (A+B
 wynik = complex(input(f'''Wprowadź liczbę zespoloną>>'''))
 while True:
     operacja = (input(f'''Wybierz operację: + | - | * | / | ** \n >>'''))
+    a = float(input('Wprowadź Re:'))
+    b = float(input('Wprowadź Imz:'))
+    c = complex(a,b)
     try:
         if operacja == '+':
-            b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
-            wynik += b
+            wynik += c
             print(wynik)
         elif operacja == '-':
-            b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
-            wynik -= b
+            wynik -= c
             print(wynik)
         elif operacja == '*':
-            b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
-            wynik = wynik * b
+            wynik = wynik * c
             print(wynik)
         elif operacja == '/':
-            b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
-            if b == 0:
-                raise Exception('Dzielenie przez 0') #zgłaszamy błąd przy dzieleniu przez 0
+            if c == 0:
+                raise ZeroDivisionError #zgłaszamy błąd przy dzieleniu przez 0
             else:
                 wynik = wynik / b
                 print(wynik)
         elif operacja == '**':
-            b = complex(input(f'''Wprowadź kolejną liczbę zespoloną>>'''))
-            if b.imag == 0:
-                wynik = wynik ** b.real
+            if b == 0:
+                wynik = wynik ** a
                 print(wynik)
             else:
-                raise Exception('Potegowanie') #zgłaszamy błąd przy potęgowaniu
+                raise ValueError #zgłaszamy błąd przy potęgowaniu
         end = input(f'''Czy chcesz wprowadzić nowe dane?T/N''')
         if end == 'N' or end == 'n':
             print(f'''Ostateczny wynik: {sprawdzenie(wynik)}''')
             break
-    except Exception('Potegowanie'):
+    except ValueError:
         print(f'''Nieobsługiwana operacja''')
-    except Exception('Dzielenie przez 0'):
+    except ZeroDivisionError:
         print(f'''NIE DZIEL PRZEZ 0''')
