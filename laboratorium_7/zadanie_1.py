@@ -2,7 +2,7 @@ zakres_bin = '01'                    #przypadki testowe:
 zakres_oct = '01234567'               #wprowadzamy niepoprawne systemy
 zakres_hex = '0123456789ABCDEFabcdef' #wprowadzamy takie same systemy
 zakres_dec = '0123456789'             #wprowadzamy niepoprawne liczby (z minusem lub spoza systemu ktory wybralismy)
-poprawne_systemy = [2,8,10,16]        #wprowadzamy poprawne liczby (np.)
+poprawne_systemy = [2,8,10,16]        #wprowadzamy poprawne liczby (np.ABC(16)-->....(10))
 def sprawdz_systemy(s1,s2):#sprawdzamy czy wybrane systemy są poprawne
     if s1 not in poprawne_systemy:
         raise Exception

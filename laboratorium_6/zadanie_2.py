@@ -13,7 +13,9 @@ while True:
     operacja = (input(f'''Wybierz operację: + | - | * | / | ** \n >>'''))
     a = float(input('Wprowadź Re:'))
     b = float(input('Wprowadź Imz:'))
-    c = complex(a,b)
+    c.real = a
+    c.imag = b
+    print(c)
     try:
         if operacja == '+':
             wynik += c
