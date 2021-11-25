@@ -22,7 +22,7 @@ def generuj_liczby_pierwsze(n):
                         lista1.append(e*a)
     lista1.sort()
     print('Iloczyny dwoch roznych liczb pierwszych(<N):',lista1)
-    print('Kwadraty tych samych liczb pierwszych(<N):',lista2)
+    print('Iloczyny tych samych liczb pierwszych(<N):',lista2)
 try:
     n = int(input('Wprowadz swoje naturalne N = '))
     n = abs(n) #gdyby n bylo calkowite ale ujemne, bierzemy wartosc bezwzgledna
