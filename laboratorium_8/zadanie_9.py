@@ -20,7 +20,7 @@ def generuj(n): #przyjmuje liczbe naturalna N
                 else: #w pozostalych przypadkach
                     if (e1*e2) not in lista1:#wpisujemy na lista1 jesli elementu jeszcze nie ma na lista1
                         lista1.append(e1*e2)
-    lista1.sort()
+    lista1.sort()  # sortujemy liste aby byla czytelniejsza
     print('Iloczyny dwoch roznych liczb pierwszych(<N):',lista1)
     print('Iloczyny tych samych liczb pierwszych(<N):',lista2)
     #print('Liczby pierwsze',lista_pierwsze)
