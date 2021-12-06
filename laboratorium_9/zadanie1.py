@@ -1,14 +1,15 @@
+import os
 macierz1= []
 macierz2 =[]
 def printuj(tablica): #funkcja do printowania macierzy w czytelnej formie
     for line in tablica:
         print(line)
-def sprawdz(m,n):
+def sprawdz(m,n): #sprawdzamy czy wymiary macierz (MxN) są odpowiednie
     if m < 2:
         raise ValueError
     if n < 2:
         raise ValueError
-def stworz(macierz,m,n):
+def stworz(macierz,m,n): #tworzymy macierz o podanych wymiarach
     for i in range(m):
         lista = []
         for j in range(n):
@@ -42,6 +43,7 @@ try:
     stworz(macierz1,m,n)
     stworz(macierz2,m,n)
     operacja = str(input('Wybierz operację: + lub - >>'))
+    os.system("clear")
     if operacja == '+':
         dodaj(macierz1,macierz2,m,n)
     elif operacja == '-':

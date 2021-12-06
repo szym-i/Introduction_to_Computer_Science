@@ -1,3 +1,4 @@
+import os
 macierz= []
 def printuj(tablica): #funkcja do printowania macierzy w czytelnej formie
     for lista in tablica:
@@ -20,6 +21,7 @@ def dodaj(macierz,m,n):
         for j in range(n):
             x = int(input(f'''Wprowadz {j+1}. liczbe w {i+1}. wierszu '''))
             macierz[i][j] += x
+    os.system("clear")
     print('Wynik dodawania macierzy:')
     printuj(macierz)
 def odejmij(macierz,m,n):
@@ -27,6 +29,7 @@ def odejmij(macierz,m,n):
         for j in range(n):
             x = int(input(f'''Wprowadz {j+1}. liczbe w {i+1}. wierszu '''))
             macierz[i][j] -= x
+    os.system("clear")
     print('Wynik odejmowania macierzy:')
     printuj(macierz)
 try:
