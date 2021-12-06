@@ -1,37 +1,32 @@
-macierz1= []
-macierz2 =[]
+macierz= []
 def printuj(tablica): #funkcja do printowania macierzy w czytelnej formie
-    for line in tablica:
-        print(line)
-def sprawdz(m,n):
+    for lista in tablica:
+        print(lista)
+def sprawdz(m,n): #sprawdzamy czy wymiary macierz (MxN) są odpowiednie
     if m < 2:
         raise ValueError
     if n < 2:
         raise ValueError
-def stworz(macierz,m,n):
+def stworz(macierz,m,n): #tworzymy macierz o podanych wymiarach
     for i in range(m):
         lista = []
         for j in range(n):
-            x = int(input(f'''Wprowadz {j+1} liczbe w {i+1} wierszu '''))
+            x = int(input(f'''Wprowadz {j+1}. liczbe w {i+1}. wierszu '''))
             lista.append(x)
         macierz.append(lista)
     printuj(macierz)
-def dodaj(macierz1,macierz2,m,n):
-    macierz = []
+def dodaj(macierz,m,n):
     for i in range(m):
-        lista = []
         for j in range(n):
-            lista.append(macierz1[i][j] + macierz2[i][j])
-        macierz.append(lista)
+            x = int(input(f'''Wprowadz {j+1}. liczbe w {i+1}. wierszu '''))
+            macierz[i][j] += x
     print('Wynik dodawania macierzy:')
     printuj(macierz)
-def odejmij(macierz1,macierz2,m,n):
-    macierz = []
+def odejmij(macierz,m,n):
     for i in range(m):
-        lista = []
         for j in range(n):
-            lista.append(macierz1[i][j] - macierz2[i][j])
-        macierz.append(lista)
+            x = int(input(f'''Wprowadz {j+1}. liczbe w {i+1}. wierszu '''))
+            macierz[i][j] -= x
     print('Wynik odejmowania macierzy:')
     printuj(macierz)
 try:
@@ -39,13 +34,12 @@ try:
     m = int(input('Ilość wierszy='))
     n = int(input('Ilość kolumn='))
     sprawdz(m,n)
-    stworz(macierz1,m,n)
-    stworz(macierz2,m,n)
+    stworz(macierz,m,n)
     operacja = str(input('Wybierz operację: + lub - >>'))
     if operacja == '+':
-        dodaj(macierz1,macierz2,m,n)
+        dodaj(macierz,m,n)
     elif operacja == '-':
-        odejmij(macierz1,macierz2,m,n)
+        odejmij(macierz,m,n)
     else:
         raise KeyError
 except ValueError:
