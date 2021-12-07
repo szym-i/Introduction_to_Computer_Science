@@ -1,4 +1,4 @@
-import os
+import os #biblioteka do czyszczenia wyjscia
 macierz1= []
 macierz2 =[]
 def printuj(tablica): #funkcja do printowania macierzy w czytelnej formie
@@ -13,21 +13,21 @@ def stworz(macierz,m,n): #tworzymy macierz o podanych wymiarach
     for i in range(m):
         lista = []
         for j in range(n):
-            x = int(input(f'''Wprowadz {j+1} liczbe w {i+1} wierszu '''))
+            x = int(input(f'''Wprowadz {j+1}. liczbe w {i+1}. wierszu '''))
             lista.append(x)
         macierz.append(lista)
     printuj(macierz)
 def dodaj(macierz1,macierz2,m,n):
-    macierz = []
+    macierz = [] #tworzymy nową macierz która będzie wynikiem
     for i in range(m):
         lista = []
         for j in range(n):
-            lista.append(macierz1[i][j] + macierz2[i][j])
+            lista.append(macierz1[i][j] + macierz2[i][j]) #dodajemy A11 i B11 na listę
         macierz.append(lista)
     print('Wynik dodawania macierzy:')
     printuj(macierz)
 def odejmij(macierz1,macierz2,m,n):
-    macierz = []
+    macierz = [] #tworzymy nową macierz która będzie wynikiem
     for i in range(m):
         lista = []
         for j in range(n):
@@ -43,7 +43,7 @@ try:
     stworz(macierz1,m,n)
     stworz(macierz2,m,n)
     operacja = str(input('Wybierz operację: + lub - >>'))
-    os.system("clear")
+    os.system("clear")  #czyścimy wyjście przed podaniem wyniku
     if operacja == '+':
         dodaj(macierz1,macierz2,m,n)
     elif operacja == '-':
@@ -59,6 +59,6 @@ except KeyError:
 # [80,86]    +  [0,0]    =  [80,86]
 # [21,313]      [311,1]     [332,314]
 #
-#  [1,71]      [2,1]      [3,72]
+#  [1,71]      [2,9]      [3,80]
 #  [96,11]  -  [13,31]  = [109,42]
 #  [0,12]      [86,68]    [88,80]
