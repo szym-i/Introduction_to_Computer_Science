@@ -19,15 +19,15 @@ def stworz(macierz,m,n): #tworzymy macierz o podanych wymiarach
 def dodaj(macierz,m,n):
     for i in range(m):
         for j in range(n):
-            x = int(input(f'''Wprowadz {j+1}. liczbe w {i+1}. wierszu '''))
+            x = int(input(f'''Dodaj do {j+1}. liczby w {i+1}. wierszu '''))
             macierz[i][j] += x
-    os.system("clear")
+    os.system("clear") #czyścimy wyjście przed podaniem wyniku
     print('Wynik dodawania macierzy:')
     printuj(macierz)
 def odejmij(macierz,m,n):
     for i in range(m):
         for j in range(n):
-            x = int(input(f'''Wprowadz {j+1}. liczbe w {i+1}. wierszu '''))
+            x = int(input(f'''Odejmij od {j+1}. liczby w {i+1}. wierszu '''))
             macierz[i][j] -= x
     os.system("clear")
     print('Wynik odejmowania macierzy:')
