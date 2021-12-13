@@ -49,3 +49,6 @@ def read_my_files(filename):
 while True:
     sciezka = input(style.WHITE + 'Wprowadź lokalizacje pliku: (np./home/szymon/Desktop/test1)')
     read_my_files(sciezka)
+#PRZYPADKI TESTOWE SĄ ZALEŻNE OD TWOJEGO ZAGOSPODAROWANIA DYSKU
+#Przykładowa ścieżka Linux: /home/user/Desktop/twoj_folder
+#Przykładowa ścieżka Windows: C:\Users\Desktop\twoj_folder UWAGA: na Windowsie to bez znaczenia czy używamy / czy \
