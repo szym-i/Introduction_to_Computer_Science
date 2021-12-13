@@ -5,7 +5,7 @@ def print_letters(filename,file):
         dict = {}
         for line in plik:
             for e in line:
-                if e != '\n':
+                if e != '\n' and e != ' ': #odrzucamy znaki nowej linii oraz spacje
                     if e not in dict:
                         dict[e] = 1
                     else:
@@ -15,7 +15,7 @@ def print_letters(filename,file):
         if len(dict) >= 5:
             print('Piąty najczęściej występujący znak to:',dict[4][0])
         else:
-            print('Plik ma zbyt mało liter')
+            print('Plik ma za mało zmaków')
     except:
         print(file,'to katalog a nie plik ;)')
 def licznik_zawartosci(katalog,filename):
