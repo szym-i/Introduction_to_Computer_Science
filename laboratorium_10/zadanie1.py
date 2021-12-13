@@ -1,6 +1,5 @@
 import os
 class style():
-    BLACK = '\033[30m'
     RED = '\033[31m'
     GREEN = '\033[32m'
     YELLOW = '\033[33m'
@@ -8,43 +7,44 @@ class style():
     MAGENTA = '\033[35m'
     CYAN = '\033[36m'
     WHITE = '\033[37m'
-    UNDERLINE = '\033[4m'
     RESET = '\033[0m'
-def print_letters(filename,file):
+class NoTxtFileError(Exception):
+    pass
+def print_letters(filename,file): #sciezka,nazwa_pliku
     try:
         plik = open(filename+'/'+file, "r")
         dict = {}
         for line in plik:
-            for e in line:
-                if e != '\n' and e != ' ': #odrzucamy znaki nowej linii oraz spacje
-                    if e not in dict:
-                        dict[e] = 1
+            for c in line:
+                if c != '\n' and c != ' ': #odrzucamy znaki nowej linii oraz spacje
+                    if c not in dict:
+                        dict[c] = 1
                     else:
-                        dict[e] += 1
-        dict = list(sorted(dict.items(), key=lambda x: x[1], reverse=True))
+                        dict[c] += 1
+        dict = list(sorted(dict.items(), key=lambda x: x[1], reverse=True)) #sortujemy słownik z policzonymi elementami
         print(dict) #pomocnicza linijka
         if len(dict) >= 5:
-            print(style.GREEN + f'''Piąty najczęściej występujący znak w pliku {file} to:{dict[4][0]}''')
+            print(style.GREEN + f'''W pliku {file} piątym najczęściej występującym znakiem był:{dict[4][0]}''')
         else:
-            print(style.YELLOW+ f'''Plik {file} ma za mało zmaków''')
+            print(style.YELLOW+ f'''Plik {file} ma za mało znaków''')
     except:
-        print(style.MAGENTA + file,'to katalog a nie plik ;)')
-def licznik_zawartosci(katalog,filename):
+        print(style.MAGENTA + file,'to folder a nie plik .txt ;)')
+def licznik_zawartosci(files_list,filename):
     licznik = 0
-    for file in katalog:
+    for file in files_list:
         if file.endswith('.txt'):
             licznik += 1
             print_letters(filename,file)
     if licznik == 0:
-        raise FileExistsError
+        raise NoTxtFileError
 def read_my_files(filename):
     try:
-        katalog = os.listdir(filename)
-        print(style.GREEN + 'Zawartość wprowadzonej sciezki:',katalog)
-        licznik_zawartosci(katalog,filename)
+        files_list = os.listdir(filename) #w ten sposób tworzymy listę z plikami w folderze
+        print(style.BLUE + 'Zawartość sciezki:',files_list)
+        licznik_zawartosci(files_list,filename)
     except FileNotFoundError:
         print(style.CYAN +'Nie ma takiego katalogu')
-    except FileExistsError:
+    except NoTxtFileError:
         print(style.RED + 'Brak plików .txt w tym folderze')
 while True:
     sciezka = input(style.WHITE + 'Wprowadź lokalizacje pliku: (np./home/szymon/Desktop/test1)')
