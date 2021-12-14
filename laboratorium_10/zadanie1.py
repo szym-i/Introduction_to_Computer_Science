@@ -10,9 +10,9 @@ class style(): #do kolorowania outputu
     RESET = '\033[0m'
 class NoTxtFileError(Exception): #własny wyjątek dla braku pliku .txt
     pass
-def print_letters(filename,file): #sciezka,nazwa_pliku
+def print_letters(filename,file): #nazwa_folderu,nazwa_pliku
     try:
-        opened_file = open(filename+'/'+file, "r")
+        opened_file = open(filename+'/'+file, "r") #sklejamy obydwie nazwy tworząc ścieżkę bezwzględną
         dict = {} #słownik do policzenia ilości wystąpień danego znaku
         for line in opened_file:
             for c in line: #(c = character)
@@ -22,7 +22,7 @@ def print_letters(filename,file): #sciezka,nazwa_pliku
                     else:
                         dict[c] += 1
         dict = list(sorted(dict.items(), key=lambda x: x[1], reverse=True))
-        # ze słownika tworzymy listę i sortujemy po drugim elemencie oraz odwracamy ją
+        #ze słownika tworzymy listę i sortujemy po drugim elemencie oraz odwracamy ją
         print(dict) #pomocnicza linijka
         if len(dict) >= 5:
             print(style.GREEN + f'''W pliku {file} piątym najczęściej występującym znakiem był:{dict[4][0]}''')
