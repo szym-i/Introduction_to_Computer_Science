@@ -1,5 +1,5 @@
 import os
-class style():
+class style(): #do kolorowania outputu
     RED = '\033[31m'
     GREEN = '\033[32m'
     YELLOW = '\033[33m'
@@ -8,28 +8,29 @@ class style():
     CYAN = '\033[36m'
     WHITE = '\033[37m'
     RESET = '\033[0m'
-class NoTxtFileError(Exception):
+class NoTxtFileError(Exception): #własny wyjątek dla braku pliku .txt
     pass
 def print_letters(filename,file): #sciezka,nazwa_pliku
     try:
-        plik = open(filename+'/'+file, "r")
-        dict = {}
-        for line in plik:
-            for c in line:
+        opened_file = open(filename+'/'+file, "r")
+        dict = {} #słownik do policzenia ilości wystąpień danego znaku
+        for line in opened_file:
+            for c in line: #(c = character)
                 if c != '\n' and c != ' ': #odrzucamy znaki nowej linii oraz spacje
                     if c not in dict:
                         dict[c] = 1
                     else:
                         dict[c] += 1
-        dict = list(sorted(dict.items(), key=lambda x: x[1], reverse=True)) #sortujemy słownik z policzonymi elementami
+        dict = list(sorted(dict.items(), key=lambda x: x[1], reverse=True))
+        # ze słownika tworzymy listę i sortujemy po drugim elemencie oraz odwracamy ją
         print(dict) #pomocnicza linijka
         if len(dict) >= 5:
             print(style.GREEN + f'''W pliku {file} piątym najczęściej występującym znakiem był:{dict[4][0]}''')
         else:
             print(style.YELLOW+ f'''Plik {file} ma za mało znaków''')
-    except:
+    except: #jeśli folder ma zakończenie .txt to zostanie obsłużony ten wyjątek
         print(style.MAGENTA + file,'to folder a nie plik .txt ;)')
-def licznik_zawartosci(files_list,filename):
+def licznik_zawartosci(files_list,filename):#sprawdzamy czy folder nie jest pusty
     licznik = 0
     for file in files_list:
         if file.endswith('.txt'):
@@ -49,6 +50,8 @@ def read_my_files(filename):
 while True:
     sciezka = input(style.WHITE + 'Wprowadź lokalizacje pliku: (np./home/szymon/Desktop/test1)')
     read_my_files(sciezka)
+    #break
 #PRZYPADKI TESTOWE SĄ ZALEŻNE OD TWOJEGO ZAGOSPODAROWANIA DYSKU
 #Przykładowa ścieżka Linux: /home/user/Desktop/twoj_folder
-#Przykładowa ścieżka Windows: C:\Users\Desktop\twoj_folder UWAGA: na Windowsie to bez znaczenia czy używamy / czy \
+#Przykładowa ścieżka Windows: C:\Users\Desktop\twoj_folder
+#UWAGA: na Windowsie to bez znaczenia czy używamy / czy \
