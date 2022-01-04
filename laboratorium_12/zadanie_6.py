@@ -1,11 +1,10 @@
-#from typing import AsyncContextManager
 class NotEnoughPointsError(Exception):
     pass
 correct_rectangles = []
-def CheckIfSquare(point1,point2,point3,rectangle):
+def CheckIfSquare(point1,point2,point3,rectangle):#sprawdza czy prostokąt nie jest kwadratem
     a = abs(point1[1] - point2[1]) #długość boków prostokąta
     b = abs(point1[0] - point3[0])
-    if a != b: #sprawdzamy czy prostokąt nie jest kwadratem
+    if a != b:
         CheckIfDuplicate(rectangle)
 def Look4PointsInsideRectangle(point1,point2,point3,rectangle):
     flag = True
@@ -32,7 +31,7 @@ def Look4Rectangle(dane):
                 for point3 in dane:
                     if point1[1] == point3[1] and point1 != point3:
                         for point4 in dane:
-                            if point2[1] == point4[1] and point4[0] == point3[0] and point2 != point4:
+                            if point2[1] == point4[1] and point4[0] == point3[0]:
                                 rectangle = [point1,point2,point3,point4]
                                 Look4PointsInsideRectangle(point1,point2,point3,rectangle)
 def Result(): #funkcja zwracająca True jeśli istnieje taki prostokąt i False w przeciwnym wypadku
@@ -40,8 +39,10 @@ def Result(): #funkcja zwracająca True jeśli istnieje taki prostokąt i False 
         return True
     else:
         return False
-dane = [(0,1),(0,6),(0,6),(4,1),(4,6),(9,1),(9,6),(1,2)] #test2 ----> False, 0 prostokątów
-#dane = [(0,1),(0,6),(0,6),(4,1),(4,6),(9,1),(9,6)] #test1 ----> True, 2 prostokąty
+#dane = [(0,0),(0,1),(0,0)]
+#dane = [(0,1),(0,6),(4,1),(4,6),(9,1),(9,6)] #test1 ----> True, 2 prostokąty
+#dane = [(0,1),(0,6),(4,1),(4,6),(9,1),(9,6),(1,2)] #test2 ----> False, 0 prostokątów
+dane = [(0,1),(0,6),(4,1),(4,6),(9,1),(9,6),(0,7),(4,7),(9,7)] #test3 ----> True, 7 prostokątów
 try:
     EnoughPointsCheck(dane)
     Look4Rectangle(dane)
