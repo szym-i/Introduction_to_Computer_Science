@@ -11,7 +11,7 @@ def Suma(lista,suma,n): #funkcja do obliczenia sumy
         Suma(lista,suma,n-1) #rekurencja
     elif n == 0:
         print('Suma elementów listy to',suma)
-lista = [0,0,0,0]
+lista = [0,1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000,0,5,0]
 try:
     Suma(lista,0,len(lista))
     Max(lista,lista[-1],len(lista))
