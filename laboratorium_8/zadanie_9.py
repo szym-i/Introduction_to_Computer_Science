@@ -1,7 +1,7 @@
-lista_pierwsze = [] #pomocnicza lista
-lista1 = [] #z liczbami półpierwszymi <N, które są iloczynem dwóch różnych liczb pierwszych
-lista2 = [] #z pozostałymi liczbami półpierwszymi <N
-def generuj(n): #funkcja przyjmuje liczbe naturalna N
+def generuj(n: int)->list: #funkcja przyjmuje liczbe naturalna N
+    lista_pierwsze = [] #pomocnicza lista
+    lista1 = [] #z liczbami półpierwszymi <N, które są iloczynem dwóch różnych liczb pierwszych
+    lista2 = [] #z pozostałymi liczbami półpierwszymi <N
     #szukamy liczb pierwszych do polowy liczby N, poniewaz najwiekszy mozliwy iloczyn mniejszy od N
     #jest rowny i_max = 2 * N/2
     for i in range(2,int(n/2)):
@@ -22,8 +22,9 @@ def generuj(n): #funkcja przyjmuje liczbe naturalna N
     lista1.sort()  # sortujemy liste aby byla czytelniejsza
     return lista1,lista2
 try:
-    N = int(input('Wprowadz swoje naturalne N = '))
-    N = abs(N) #bierzemy wartosc bezwzgledna, gdyby N bylo ujemne
+    #N = int(input('Wprowadz swoje naturalne N = '))
+    #N = abs(N) #bierzemy wartosc bezwzgledna, gdyby N bylo ujemne
+    N=0
     print(generuj(N))
 except:
     print('Wprowadzona liczba nie jest naturalna')

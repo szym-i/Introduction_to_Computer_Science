@@ -1,3 +1,7 @@
+from audioop import add
+from string import printable
+
+
 zakres_bin = '01'                    #przypadki testowe:
 zakres_oct = '01234567'               #wprowadzamy niepoprawne systemy
 zakres_hex = '0123456789ABCDEFabcdef' #wprowadzamy takie same systemy
@@ -9,9 +13,9 @@ def sprawdz_systemy(s1,s2):#sprawdzamy czy wybrane systemy są poprawne
     if s2 not in poprawne_systemy:
         raise Exception
     elif s1 == s2:
-        print('Co robisz??')
+        return "co robisz"
     else:
-        operacja_zamiany(s1,s2,liczba)
+        return operacja_zamiany(s1,s2,liczba)
 def sprawdz_liczbe(s1,num1):#sprawdzamy czy wczytana liczba jest w wybranym systemie 
     if s1 == 2:
         for cyfra in num1:
@@ -25,7 +29,7 @@ def sprawdz_liczbe(s1,num1):#sprawdzamy czy wczytana liczba jest w wybranym syst
         for cyfra in num1:
             if cyfra not in zakres_hex:
                 raise ValueError
-    else:
+    elif s1 == 10:
         for cyfra in num1:
             if cyfra not in zakres_dec:
                 raise ValueError
@@ -53,13 +57,17 @@ def operacja_zamiany(s1,s2,num1):#zamiana ze stringa na dziesietny, i z dziesiet
             wynik += str(reszta)    #którego kod ASCII jest równy liczbie całkowitej
             liczba_dziesietna //= s2
     wynik = wynik[::-1]
-    print(f'''Twój wynik to {wynik}''')
+    #print(f'''Twój wynik to {wynik}''')
+    return wynik
 try:
-    s1 = int(input(f'''Wybierz system początkowy:'''))
-    s2 = int(input(f'''Wybierz system docelowy:'''))
-    liczba = str(input('Wprowadź swoje naturalne n='))
-    sprawdz_systemy(s1,s2)
-except ValueError:
-    print(f'''Wprowadzona liczba nie jest naturalna/Nie mieści się w wybranym systemie''')
+    #s1 = int(input(f'''Wybierz system początkowy:'''))
+    #s2 = int(input(f'''Wybierz system docelowy:'''))
+    #liczba = str(input('Wprowadź swoje naturalne n='))
+    s1=8
+    s2=2
+    liczba='1'
+    print(sprawdz_systemy(s1,s2))
 except Exception:
     print(f'''Wybrałeś nieobsługiwany system''')
+except ValueError:
+    print(f'''Wprowadzona liczba nie jest naturalna/Nie mieści się w wybranym systemie''')
