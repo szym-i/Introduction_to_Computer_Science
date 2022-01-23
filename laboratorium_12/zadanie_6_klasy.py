@@ -1,7 +1,6 @@
 class NotEnoughPointsError(Exception):
     pass
 
-
 class RectangleDetector:
     def __init__(self):
         self.data = []
@@ -10,7 +9,7 @@ class RectangleDetector:
         for d in data:
             self.data.append(d)
 
-    def calcuate_correct_rectangles(self):
+    def calcuate_correct_rectangles(self): #sprawdza czy istnieją 4 punkty tworzące prostokąt (w tym kwadrat)
         self.__ensure_enough_points()
         correct_rectangles = []
         for point1 in self.data:
@@ -21,8 +20,7 @@ class RectangleDetector:
                             for point4 in dane:
                                 if point2[1] == point4[1] and point4[0] == point3[0]:
                                     rectangle = [point1, point2, point3, point4]
-                                    self.__look_for_points_inside_rectangle(point1, point2, point3, rectangle,
-                                                                            correct_rectangles)
+                                    self.__look_for_points_inside_rectangle(point1,point2,point3,rectangle,correct_rectangles)
         return correct_rectangles
 
     def __append_if_not_square(self, point1, point2, point3, rectangle,correct_rectangles):  # sprawdza czy prostokąt nie jest kwadratem
@@ -31,7 +29,7 @@ class RectangleDetector:
         if a != b:
             self.__append_if_not_duplicate(rectangle, correct_rectangles)
 
-    def __look_for_points_inside_rectangle(self, point1, point2, point3, rectangle, correct_rectangles):
+    def __look_for_points_inside_rectangle(self, point1, point2, point3, rectangle, correct_rectangles):#szuka punktów wewnątrz prostokąta
         for point5 in self.data:
             min_y = min(point1[1], point2[1])
             max_y = max(point1[1], point2[1])
@@ -41,12 +39,12 @@ class RectangleDetector:
                 return
         self.__append_if_not_square(point1, point2, point3, rectangle, correct_rectangles)
 
-    def __append_if_not_duplicate(self, rectangle, correct_rectangles):
+    def __append_if_not_duplicate(self, rectangle, correct_rectangles):#sprawdza czy nie wykryto już takiego prostokąta
         sorted_rectangle = sorted(rectangle, key=lambda tup: tup)  # sortujemy po krotkach
         if sorted_rectangle not in correct_rectangles:
             correct_rectangles.append(sorted_rectangle)
 
-    def __ensure_enough_points(self):
+    def __ensure_enough_points(self):#sprawdza czy jest wystarczająco punktów aby zbudować prostokąt
         if len(self.data) < 4:
             raise NotEnoughPointsError
 
@@ -58,16 +56,15 @@ def result(correct_rectangles):  #funkcja zwracająca True jeśli istnieje taki 
         return False
 
 
-#dane = [(0,0),(0,1),(0,0)]
+dane = [(0,0),(0,1),(0,0)]
 #dane = [(0,1),(0,6),(4,1),(4,6),(9,1),(9,6)] #test1 ----> True, 2 prostokąty
 #dane = [(0,1),(0,6),(4,1),(4,6),(9,1),(9,6),(1,2)] #test2 ----> False, 0 prostokątów
-dane = [(0, 1), (0, 6), (4, 1), (4, 6), (9, 1), (9, 6), (0, 7), (4, 7), (9, 7)]  # test3 ----> True, 7 prostokątów
+#dane = [(0, 1), (0, 6), (4, 1), (4, 6), (9, 1), (9, 6), (0, 7), (4, 7), (9, 7)]  # test3 ----> True, 7 prostokątów
 
 try:
     detector = RectangleDetector()
     detector.add_data(dane)
     rectangles = detector.calcuate_correct_rectangles()
-
     for e in rectangles:
         print(e)
     print('ilośc wykrytych prostokątów', len(rectangles))

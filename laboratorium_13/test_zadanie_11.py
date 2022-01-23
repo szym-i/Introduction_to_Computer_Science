@@ -5,6 +5,7 @@ lista1 = [1,2,3,45,66]
 lista2 = [0,0,0,0]
 lista3 = [31,45,12]
 bad_lista = ['a','1']
+pusta_lista = []
 
 class TestZadanie11(unittest.TestCase):
 
@@ -12,7 +13,8 @@ class TestZadanie11(unittest.TestCase):
         self.assertEqual(zadanie_11.Max(lista1,lista1[-1],len(lista1)),66)
         self.assertEqual(zadanie_11.Max(lista2,lista2[-1],len(lista2)),0)
         self.assertEqual(zadanie_11.Max(lista3,lista3[-1],len(lista3)),45)
-        self.assertRaises(Exception,zadanie_11.Max(bad_lista,bad_lista[-1],len(bad_lista)))
+        self.assertRaises(TypeError,zadanie_11.Max(bad_lista,bad_lista[-1],len(bad_lista)))
+        #   self.assertRaises(IndexError,zadanie_11.Max(pusta_lista,pusta_lista[-1],len(pusta_lista)))
     def test_Suma(self):
         self.assertEqual(zadanie_11.Suma(lista1,0,len(lista1)),117)
         self.assertEqual(zadanie_11.Suma(lista2,0,len(lista2)),0)

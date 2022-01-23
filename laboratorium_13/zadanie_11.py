@@ -11,9 +11,11 @@ def Suma(lista,suma,n)->int: #gdzie n - długość listy
         return Suma(lista,suma,n-1) #rekurencja
     elif n == 0:
         return suma
-lista = [1,1,0,5,1]
+lista = []
 try:
     print('Suma=',Suma(lista,0,len(lista)))
     print('Maksymalny element=',Max(lista,lista[-1],len(lista)))
-except Exception:
+except TypeError:
     print('Wystąpił jakiś problem z listą')
+except IndexError:
+    print('Lista jest pusta!')
