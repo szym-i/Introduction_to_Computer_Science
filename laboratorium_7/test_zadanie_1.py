@@ -1,4 +1,3 @@
-#from multiprocessing.managers import ValueProxy
 import unittest
 import zadanie_1
 

@@ -1,3 +1,6 @@
+def check(lista):
+    if len(lista) == 0:
+        raise IndexError
 def Max(lista,maks,n)->int: #gdzie n - długość listy(element który będziemy badać) a maks = ostatni element listy
     if n > 0:
         if lista[n-1] > maks: #n-1 bo elementy w liście są indeksowane od 0
@@ -13,8 +16,10 @@ def Suma(lista,suma,n)->int: #gdzie n - długość listy
         return suma
 lista = []
 try:
-    print('Suma=',Suma(lista,0,len(lista)))
-    print('Maksymalny element=',Max(lista,lista[-1],len(lista)))
+    check(lista)
+    #print('Suma=',Suma(lista,0,len(lista)))
+    #print('Maksymalny element=',Max(lista,lista[-1],len(lista)))
+    Suma(lista,0,len(lista))
 except TypeError:
     print('Wystąpił jakiś problem z listą')
 except IndexError:
