@@ -16,4 +16,3 @@
   Pierwsza kolumna | Druga kolumna
   -----------------|---------------
   jeden | dwa
-![kot](laboratorium&#32;2/kot.jpg) | ![pies](laboratorium&#32;2/dog.jpg)
